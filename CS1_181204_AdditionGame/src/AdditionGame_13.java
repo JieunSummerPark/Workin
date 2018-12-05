@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class AdditionGame_12 {
+public class AdditionGame_13 {
 
 	public static Scanner input = new Scanner(System.in);
 
@@ -72,7 +72,7 @@ public class AdditionGame_12 {
 			annountHEARTGAINorCHEERUP();
 
 			if (heartCounter>30) {
-				System.out.println("YOU WON!");
+				System.out.println(userName + "WON!");
 				break;
 			}
 
@@ -217,24 +217,26 @@ public class AdditionGame_12 {
 	private static void annountHEARTGAINorCHEERUP() {
 		System.out.println("");
 		if (gameOver == false) {
-			// WHEN USER WRONG ONLY A FEW TIMES
+			// GIVE MORE HEARTS WHEN USER WRONG ONLY A FEW TIMES
 			if (wrongCounter < 3) {
 				// SCORE PERCENTAGE
 				if (scorePercentage > 90) {
 					heartCounter += 3;
-					System.out.println("Your score is above 90%! You get 3 more hearts.");
+					System.out.println(userName + "'s score is above 90%! " + userName + " get 3 more hearts.");
 				}
 				// TIME CONSUME
 				if ((totalTime/howManyGames) < 2) {
 					heartCounter += 1;
-					System.out.println("You are pretty fast! You get 1 more hearts.");
+					System.out.println(userName + " is pretty fast! " + userName + " get 1 more hearts.");
 				}
-				System.out.println("\nNow you have " + heartCounter + " hearts.");
+				System.out.println("\nNow " + userName + " has " + heartCounter + " hearts.");
 			}
-			// WHEN USER WRONG MANY TIMES
+			
+			// CHEER UP THE USER WHEN THE USER WRONG MANY TIMES
 			else if (wrongCounter >5) {
+				System.out.println("You got wrong a lot this time...!");
 				if (heartCounter > 0) {
-					System.out.println("Don't give up! You can do it!");
+					System.out.println("But don't give up! " + userName + " can do it!");
 				} else {
 					System.out.println("Better luck next time...!");
 				}

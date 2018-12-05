@@ -21,6 +21,7 @@ public class AdditionGameGUI_EventHandler_03 extends Application {
 	
 	@Override
 	public void start (Stage StageGetUserName) {
+		
 		// Create a pane and set its properties
 		GridPane pane = new GridPane();
 		pane.setAlignment(Pos.CENTER);

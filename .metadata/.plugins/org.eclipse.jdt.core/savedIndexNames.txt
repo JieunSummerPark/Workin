@@ -16,4 +16,3 @@ INDEX VERSION 1.131+F:\ComputerLanguage\Java_WorkingOn\.metadata\.plugins\org.ec
 3758809307.index
 1612218400.index
 3170725767.index
-479131537.index

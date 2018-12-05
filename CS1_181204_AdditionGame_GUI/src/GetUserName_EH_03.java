@@ -12,7 +12,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class GetUserName_EH_03 extends Application {
+public class AdditionGameGUI_EventHandler_03 extends Application {
 	
 	private TextField tfFirstName = new TextField();
 	private TextField tfMiddleName = new TextField();

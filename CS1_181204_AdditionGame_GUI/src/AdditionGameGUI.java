@@ -9,7 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class GetUserName extends Application {
+public class AdditionGameGUI extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		// Create a pane and set its properties

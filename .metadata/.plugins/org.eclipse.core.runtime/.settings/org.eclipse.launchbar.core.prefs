@@ -1,7 +1,9 @@
+LaunchTargetManager/configs/GetUserName_EH=org.eclipse.launchbar.core.launchTargetType.local\:Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
-configDescList=org.eclipse.launchbar.core.descriptorType.default\:Plinko_22_WithoutPrivate,org.eclipse.launchbar.core.descriptorType.default\:P324_TestSimpleCircle
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:Plinko_22_WithoutPrivate,org.eclipse.launchbar.core.descriptorType.default\:P324_TestSimpleCircle,org.eclipse.launchbar.core.descriptorType.default\:P555_ShowGridPane,org.eclipse.launchbar.core.descriptorType.default\:GetUserName,org.eclipse.launchbar.core.descriptorType.default\:P590_ControlCircleWithoutEventHandling,org.eclipse.launchbar.core.descriptorType.default\:P587_HandleEvent,org.eclipse.launchbar.core.descriptorType.default\:GetUserName_EH
 eclipse.preferences.version=1
+org.eclipse.launchbar.core.descriptorType.default\:P590_ControlCircleWithoutEventHandling/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:Plinko_22_WithoutPrivate/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:Plinko_22_WithoutPrivate/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local

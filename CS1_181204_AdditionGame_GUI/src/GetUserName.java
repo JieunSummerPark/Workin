@@ -9,7 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class P555_ShowGridPane extends Application {
+public class GetUserName extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		// Create a pane and set its properties

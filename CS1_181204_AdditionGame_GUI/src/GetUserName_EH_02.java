@@ -13,41 +13,51 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-public class GetUserName_EH extends Application {
-	private TextField FirstName = new TextField();
-	private TextField MiddleName = new TextField();
-	private TextField LastName = new TextField();
-	private TextField YourName = new TextField();
+public class GetUserName_EH_02 extends Application {
+	private TextField tfFirstName = new TextField();
+	private TextField tfMiddleName = new TextField();
+	private TextField tfLastName = new TextField();
+	private TextField tfYourName = new TextField();
 	@Override
 	public void start(Stage primaryStage) {
 		// Create a pane and set its properties
 		GridPane pane = new GridPane();
 		pane.setAlignment(Pos.CENTER);
 		pane.setPadding(new Insets(11.5, 12.5, 13.5, 14.5));
-		pane.setHgap(5.5);
-		pane.setVgap(5.5);
+		pane.setHgap(5);
+		pane.setVgap(5);
+		
+		// Set properties for UI
+		pane.setAlignment(Pos.CENTER);
+		tfFirstName.setAlignment(Pos.CENTER_LEFT);
+		tfMiddleName.setAlignment(Pos.CENTER_LEFT);
+		tfLastName.setAlignment(Pos.CENTER_LEFT);
+		tfYourName.setAlignment(Pos.CENTER_LEFT);
+		tfYourName.setEditable(false);
 
 		// Place nodes in the pane
-		pane.add(new Label("First Name:"), 0, 0);
-		pane.add(new TextField(), 1, 0);
-		pane.add(new Label("Middle Name:"), 0, 1);
-		pane.add(new TextField(), 1, 1);
-		pane.add(new Label("Last Name:"), 0, 2);
-		pane.add(new TextField(), 1, 2);
-		pane.add(new Label("Your Name is:"), 0, 3);
-		pane.add(new TextField(), 1, 3);
+		pane.add(new Label("First Name"), 0, 0);
+		pane.add(tfFirstName, 1, 0);
+		pane.add(new Label("Middle Name"), 0, 1);
+		pane.add(tfMiddleName, 1, 1);
+		pane.add(new Label("Last Name"), 0, 2);
+		pane.add(tfLastName, 1, 2);
+		pane.add(new Label("Your Name is"), 0, 3);
+		pane.add(tfYourName, 1, 3);
 		
 		// Hold two buttons in an HBox
 		HBox hBox = new HBox();
-		hBox.setSpacing(20);
+		hBox.setSpacing(10);
 		hBox.setAlignment(Pos.CENTER);
 		Button btAddName = new Button("Add Name");
+		Button btNext = new Button("Next");
 		Button btExit = new Button("Exit");
 		hBox.getChildren().add(btAddName);
+		hBox.getChildren().add(btNext);
 		hBox.getChildren().add(btExit);
 
-		btAddName.setOnAction(new AddNameHandlerClass());
-		btExit.setOnAction(new ExitHandlerClass());
+		btAddName.setOnAction(e -> showName());
+		btExit.setOnAction(e -> primaryStage.close());
 		/** SAME
 		AddNameHandlerClass AddNameHandler = new AddNameHandlerClass();
 		btAddName.setOnAction(AddNameHandler);
@@ -65,23 +75,13 @@ public class GetUserName_EH extends Application {
 		primaryStage.setScene(scene); // Place the scene in the stage
 		primaryStage.show(); // Display the stage
 	}
+	
+	private void showName() {
+		String userName = tfFirstName.getText() + " " + tfMiddleName.getText() + " " + tfLastName.getText();
+		tfYourName.setText(userName);
+	}
 
 	public static void main(String[] args) {
 		Application.launch(args);
-	}
-}
-
-
-class AddNameHandlerClass implements EventHandler <ActionEvent> {
-	@Override
-	public void handle(ActionEvent e) {
-		System.out.println("AddName Button Clicked");
-	}
-}
-
-class ExitHandlerClass implements EventHandler <ActionEvent> {
-	@Override
-	public void handle(ActionEvent e) {
-		System.out.println("Exit Button Clicked");
 	}
 }

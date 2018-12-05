@@ -98,7 +98,7 @@ public class GetUserName_EH_03 extends Application {
 		btAddName.setOnAction(e -> showName());
 		btNext.setOnAction(e -> StageChooseCal.show());
 		btExit1.setOnAction(e -> StageGetUserName.close());
-		btExit2.setOnAction(e -> StageGetUserName.close());
+		btExit2.setOnAction(e -> StageChooseCal.close());
 		btNext.setOnAction(e -> StageChooseCal.show());
 	}
 

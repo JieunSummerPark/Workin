@@ -15,10 +15,11 @@ public class AdditionGame_13 {
 
 	public static int roundCounter;
 	public static int howManyGames = 10;
-	public static int correctCounter = 0;
-	public static int wrongCounter;
+
 	public static int heartCounter = 3;
 
+	public static int correctCounter = 0;
+	public static int wrongCounter = 0;
 	public static double scorePercentage;
 
 	public static double startTime;
@@ -42,7 +43,7 @@ public class AdditionGame_13 {
 
 			askToChooseCalculation();
 			whichCalculation = input.nextInt();
-			
+
 			gameOver = false;
 
 			if (whichCalculation!=1 && whichCalculation!=2 && whichCalculation!=3 && whichCalculation!=4) {
@@ -63,7 +64,6 @@ public class AdditionGame_13 {
 				if (heartCounter <= 0) {
 					announceGameOver();
 					gameOver = true;
-					wrongCounter = 0;
 					break;
 				}
 			}
@@ -78,6 +78,7 @@ public class AdditionGame_13 {
 
 			// RESET
 			correctCounter = 0;
+			wrongCounter=0;
 			totalTime = 0;
 
 			System.out.print(""
@@ -95,15 +96,10 @@ public class AdditionGame_13 {
 		} // End of While Loop
 
 
-
-
 		input.close();
 	} /////////////////////////////////////////////////////////////////////////////////////// THE END of MAIN METHOD
 
 
-	
-	
-	
 	private static void accounceTheRule() {
 		System.out.println(""
 				+ "\nFor now, you have 3 hearts."
@@ -112,10 +108,7 @@ public class AdditionGame_13 {
 				+ "\nWhen you lose all of your heart, you will lose."
 				+ "\nwhen you get 30 heart or more than that, YOU WILL WIN THIS GAME.");
 	}
-	
-	
-	
-	
+
 	private static void askToChooseCalculation() {
 		if(gameOver == true)
 			System.out.println("");
@@ -127,9 +120,6 @@ public class AdditionGame_13 {
 				+ "\n4. Division"
 				+ "\n\nPlease choose : ");
 	}
-
-
-
 
 	private static void announceTheGameStart() {
 		switch(whichCalculation) {
@@ -156,13 +146,10 @@ public class AdditionGame_13 {
 		}
 	}
 
-
-
-
 	private static void computing() {
 		ranNum1 = (int)(Math.random() * 10 + 1 );
 		ranNum2 = (int)(Math.random() * 10 + 1 );
-		
+
 		switch(whichCalculation) {
 		case 1: Addition(); break;
 		case 2: Subtraction(); break;
@@ -172,18 +159,15 @@ public class AdditionGame_13 {
 
 		answer = input.nextInt();
 		if (answer == result) {
-			correctCounter++;
+			++correctCounter;
 			System.out.println("Correct!");
 		} else if (answer != result) {
-			--heartCounter; wrongCounter++;
+			--heartCounter; ++wrongCounter;
 			System.out.println("It's wrong.\nThe correct answer is " + result + "!");
 			System.out.println("You lost 1 heart. Now " + userName + " has " + heartCounter + " hearts.");
 		}
 		System.out.println("");
 	}
-
-
-
 
 	private static void announceGameOver() {
 		System.out.println("\n\n"
@@ -191,19 +175,13 @@ public class AdditionGame_13 {
 				+ "\n-------------------------GameOver------------------------"
 				+ "\n---------------------------------------------------------\n\n\n");
 	}
-	
-	
-	
-	
+
 	private static void announceBYE() {
 		System.out.println("\n\n"
 				+ "\n---------------------------------------------------------"
 				+ "\n-------------------ThankYou-AND-GoodBye------------------"
 				+ "\n---------------------------------------------------------");
 	}
-
-
-
 
 	private static void announceResult() {
 		scorePercentage = (correctCounter/(double)howManyGames) * 100;
@@ -213,25 +191,24 @@ public class AdditionGame_13 {
 		System.out.println(userName + "'s average seconds per answer is " + String.format("%.2f", totalTime/howManyGames) + " seconds.");
 	}
 
-
 	private static void annountHEARTGAINorCHEERUP() {
 		System.out.println("");
 		if (gameOver == false) {
 			// GIVE MORE HEARTS WHEN USER WRONG ONLY A FEW TIMES
 			if (wrongCounter < 3) {
 				// SCORE PERCENTAGE
-				if (scorePercentage > 90) {
+				if (scorePercentage >= 90) {
 					heartCounter += 3;
 					System.out.println(userName + "'s score is above 90%! " + userName + " get 3 more hearts.");
 				}
 				// TIME CONSUME
 				if ((totalTime/howManyGames) < 2) {
 					heartCounter += 1;
-					System.out.println(userName + " is pretty fast! " + userName + " get 1 more hearts.");
+					System.out.println(userName + " is pretty fast! " + userName + " get 1 more heart.");
 				}
 				System.out.println("\nNow " + userName + " has " + heartCounter + " hearts.");
 			}
-			
+
 			// CHEER UP THE USER WHEN THE USER WRONG MANY TIMES
 			else if (wrongCounter >5) {
 				System.out.println("You got wrong a lot this time...!");
@@ -248,15 +225,12 @@ public class AdditionGame_13 {
 
 
 
-
-
-
 	private static void Addition() {
 		result = ranNum1 + ranNum2;
 		System.out.print(roundCounter + ") " + ranNum1 + " + " + ranNum2 + " = ");
 	}
 	private static void Subtraction() {
-		maxFirst();
+		maxFirst(ranNum1, ranNum2);
 		result = ranNum1 - ranNum2;
 		System.out.print(roundCounter + ") " + ranNum1 + " - " + ranNum2 + " = ");
 	}
@@ -265,11 +239,11 @@ public class AdditionGame_13 {
 		System.out.print(roundCounter + ") " + ranNum1 + " X " + ranNum2 + " = ");	
 	}
 	private static void Division() {
-		maxFirst();
+		maxFirst(ranNum1, ranNum2);
 		result = ranNum1 / ranNum2;
 		System.out.print(roundCounter + ") " + ranNum1 + " / " + ranNum2 + " = ");
 	}
-	private static void maxFirst() {
+	private static void maxFirst(int ranNum12, int ranNum22) {
 		int max;
 		if (ranNum2 > ranNum1) {
 			max = ranNum2;

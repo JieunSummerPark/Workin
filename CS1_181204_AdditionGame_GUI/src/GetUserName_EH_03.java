@@ -1,19 +1,21 @@
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-// import javafx.geometry.HPos;
+//import javafx.event.ActionEvent;
+//import javafx.event.EventHandler;
+//import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class GetUserName_EH_02 extends Application {
+public class GetUserName_EH_03 extends Application {
 	
 	private TextField tfFirstName = new TextField();
 	private TextField tfMiddleName = new TextField();
@@ -53,10 +55,10 @@ public class GetUserName_EH_02 extends Application {
 		hBox.setAlignment(Pos.CENTER);
 		Button btAddName = new Button("Add Name");
 		Button btNext = new Button("Next");
-		Button btExit = new Button("Exit");
+		Button btExit1 = new Button("Exit");
 		hBox.getChildren().add(btAddName);
 		hBox.getChildren().add(btNext);
-		hBox.getChildren().add(btExit);
+		hBox.getChildren().add(btExit1);
 
 		BorderPane borderPane = new BorderPane();
 		borderPane.setCenter(pane);
@@ -68,13 +70,39 @@ public class GetUserName_EH_02 extends Application {
 		StageGetUserName.setScene(scene); // Place the scene in the stage
 		StageGetUserName.show(); // Display the stage
 		
+		VBox ChooseCalPane = new VBox();
+		
+		HBox paneForButtons = new HBox();
+		paneForButtons.setSpacing(10);
+		paneForButtons.setAlignment(Pos.CENTER);
+		Button btNext2 = new Button("Next");
+		Button btExit2 = new Button("Exit");
+		paneForButtons.getChildren().add(btNext2);
+		paneForButtons.getChildren().add(btExit2);
+		
+		ChooseCalPane.setSpacing(10);
+		ChooseCalPane.setPadding(new Insets(5,5,5,5));
+		ChooseCalPane.setAlignment(Pos.CENTER_LEFT);
+		RadioButton rbAddition = new RadioButton("Addition");
+		RadioButton rbSubtraction = new RadioButton("Subtraction");
+		RadioButton rbMultiplication = new RadioButton("Multiplication");
+		RadioButton rbDivision = new RadioButton("Division");
+		ChooseCalPane.getChildren().add(rbAddition);
+		ChooseCalPane.getChildren().add(rbSubtraction);
+		ChooseCalPane.getChildren().add(rbMultiplication);
+		ChooseCalPane.getChildren().add(rbDivision);
+		ChooseCalPane.getChildren().add(paneForButtons);
+		
+		Stage StageChooseCal = new Stage();
+		Scene SceneChooseCal = new Scene(ChooseCalPane, 300, 200);
+		StageChooseCal.setTitle("Choose a Calculation");
+		StageChooseCal.setScene(SceneChooseCal);
+		
 		btAddName.setOnAction(e -> showName());
-		//btNext.setOnAction(e -> StageChooseCal.show());
-		btExit.setOnAction(e -> StageGetUserName.close());
-
-		
-		
-		
+		btNext.setOnAction(e -> StageChooseCal.show());
+		btExit1.setOnAction(e -> StageGetUserName.close());
+		btExit2.setOnAction(e -> StageGetUserName.close());
+		btNext.setOnAction(e -> StageChooseCal.show());
 	}
 
 	private void showName() {

@@ -1,5 +1,5 @@
 
-public class P253_AnalyzeNumbers {
+public class P253_AnalyzeNumbers_01 {
 
 	public static void main(String[] args) {
 		
